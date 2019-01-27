@@ -16,6 +16,15 @@ services:
       - postgres
     links:
       - postgres
+      - webpack
+
+  webpack:
+    build: .
+    command: ./bin/webpack-dev-server
+    env_file:
+      - .env.development
+    ports:
+      - 3035:3035
 
   postgres:
     image: postgres:11.1-alpine
