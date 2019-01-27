@@ -1,11 +1,18 @@
-.mw8.center
-  .fl.w-100.w-75-ns
-    h1.f2.mv0.pv2 = @event.name
-    h3.f3.mv0.pv2
-      = @event.starts_at
-      | –
-      = @event.ends_at
-
-    => link_to 'Edit', edit_event_path(@event)
-    '|
-    =< link_to 'Back', events_path
+.mw8.center.ph3-ns
+  .cf
+    .fl.w-100
+      h1.f2.mv2.pv2.ba.b--dashed = @event.name
+      h3.f5.mv2.pv2.ba.b--dashed
+        = @event.starts_at
+        | –
+        = @event.ends_at
+  section.cf.ph2-ns
+    .fl.w-100.w-two-thirds-ns.pa1.ph4-ns
+      p.ba.b--dashed.pa4 Lorem ipsum dolor sit amet
+    .fl.w-100.w-third-ns.pa1.ph4-ns
+      p.ba.b--dashed.pa4 Lorem ipsum? Dolor sit amet consectetur adipisicing elit
+  .cf
+    .fl.w-100.ba.b--dashed
+      => link_to 'Edit', edit_event_path(@event)
+      '|
+      =< link_to 'Back', events_path
