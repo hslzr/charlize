@@ -8,7 +8,7 @@
 export default {
   data: function() {},
   mounted() {
-    console.log("I guess?)
+    console.log("I guess?")
   }
 }
 </script>
