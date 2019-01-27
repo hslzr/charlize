@@ -6,4 +6,5 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("vue")
+require("flatpickr")
 require("channels")

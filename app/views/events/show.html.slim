@@ -1,15 +1,11 @@
-p#notice = notice
+.mw8.center
+  .fl.w-100.w-75-ns
+    h1.f2.mv0.pv2 = @event.name
+    h3.f3.mv0.pv2
+      = @event.starts_at
+      | –
+      = @event.ends_at
 
-p
-  strong Name:
-  = @event.name
-p
-  strong Starts at:
-  = @event.starts_at
-p
-  strong Ends at:
-  = @event.ends_at
-
-=> link_to 'Edit', edit_event_path(@event)
-'|
-=< link_to 'Back', events_path
+    => link_to 'Edit', edit_event_path(@event)
+    '|
+    =< link_to 'Back', events_path

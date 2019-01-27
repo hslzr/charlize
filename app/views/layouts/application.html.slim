@@ -10,6 +10,6 @@ html
     = stylesheet_link_tag 'application', media: 'all'
 
   body.sans-serif
+    = javascript_pack_tag 'application'
     main.mw-100.center
       = yield
-    = javascript_pack_tag 'application'

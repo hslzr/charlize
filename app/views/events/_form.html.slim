@@ -4,8 +4,14 @@
 
   .form-inputs
     = f.input :name
-    = f.input :starts_at
-    = f.input :ends_at
+    = f.input :starts_at, as: :string, class: 'flatpickr'
+    = f.input :ends_at, as: :string, class: 'flatpickr'
 
   .form-actions
     = f.button :submit
+
+javascript:
+  flatpickr('[id$=_at]', {
+    enableTime: true,
+    minDate: 'today'
+  })
