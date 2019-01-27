@@ -25,6 +25,8 @@ services:
       - .env.development
     ports:
       - 3035:3035
+    volumes:
+      - .:/usr/src/app
 
   postgres:
     image: postgres:11.1-alpine

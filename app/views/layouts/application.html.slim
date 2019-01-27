@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Charlize
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+
+  body.sans-serif
+    main.mw-100.center
+      = yield
+    = javascript_pack_tag 'application'

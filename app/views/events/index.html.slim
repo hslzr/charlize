@@ -1,0 +1,25 @@
+.mw8.center
+  h1.f1 Listing events
+
+  table.w-100.collapse
+    thead
+      tr.bb.b
+        th.pv2.ph3.tl Name
+        th.pv2.ph3.tl Starts at
+        th.pv2.ph3.tl Ends at
+        th.pv2.ph3.tl colspan="3"
+
+    tbody
+      - @events.each do |event|
+        tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
+          td.pv2.ph3 = event.name
+          td.pv2.ph3 = event.starts_at
+          td.pv2.ph3 = event.ends_at
+          td.pv2.ph3
+            =<> link_to 'Show', event, class: 'link hover-hot-pink'
+            =<> link_to 'Edit', edit_event_path(event), class: 'link hover-hot-pink'
+            =<> link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete, class: 'link hover-dark-red'
+
+  br
+
+  = link_to 'New Event', new_event_path
