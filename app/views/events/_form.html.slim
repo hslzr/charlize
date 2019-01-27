@@ -6,6 +6,7 @@
     = f.input :name
     = f.input :starts_at, as: :string, class: 'flatpickr'
     = f.input :ends_at, as: :string, class: 'flatpickr'
+    = f.input :cover_image, as: :file, input_html: { direct_upload: true }
 
   .form-actions
     = f.button :submit
