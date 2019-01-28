@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
+  <div id="image_container_vue">
+    <img v-if:"url" :src="url" @onChange="onInputChange" />
   </div>
 </template>
 
@@ -8,7 +8,13 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      url: null
+    }
+  },
+  methods: {
+    onInputChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
     }
   }
 }

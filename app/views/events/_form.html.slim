@@ -1,18 +1,48 @@
 = simple_form_for(@event) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-    = f.input :name
-    = f.input :starts_at, as: :string, class: 'flatpickr'
-    = f.input :ends_at, as: :string, class: 'flatpickr'
-    = f.input :cover_image, as: :file, input_html: { direct_upload: true }
-
-  .form-actions
-    = f.button :submit
+  .cf.mb3
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .cf.mb3
+    .fl.w-100.w-third-ns.pr3-ns
+      .ba.b--near-black.mb1
+        = image_tag 'img_placeholder', class: 'mw-100 db center', id: 'image_container'
+      = label_tag 'image_input', 'Upload an image',
+        class: 'db mv0 pv2 bg-black white tc mw-100 pointer'
+      = f.input :cover_image, as: :file,
+        label: false,
+        input_html: { direct_upload: true, class: 'o-0 overflow-hidden', id: 'image_input' }
+    .fl.w-100.w-two-thirds-ns.pl3-ns
+      .mb3
+        = label_tag 'event_name', 'Name', class: 'f6 db fw4 dark-gray'
+        = f.input :name,
+          label: false,
+          input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_name' }
+      .mb3
+        = label_tag 'event_starts_at', 'Starts at', class: 'f6 db fw4 dark-gray'
+        = f.input :starts_at, as: :string,
+          label: false,
+          input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_starts_at' }
+      .mb3
+        = label_tag 'event_ends_at', 'Ends at', class: 'f6 db fw4 dark-gray'
+        = f.input :ends_at, as: :string,
+          label: false,
+          input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_ends_at' }
+      .mv4
+        = f.button :submit, class: 'f5 w-two-thirds ba b--near-black pa2 bg-transparent hover-bg-near-black hover-white'
 
 javascript:
   flatpickr('[id$=_at]', {
     enableTime: true,
     minDate: 'today'
-  })
+  });
+
+  var el = document.getElementById('image_input');
+  var img = document.getElementById('image_container');
+
+  el.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    console.log("I got a file");
+    let url = URL.createObjectURL(file);
+    img.setAttribute("src", url);
+  });
+

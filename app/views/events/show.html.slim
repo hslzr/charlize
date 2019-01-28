@@ -1,18 +1,58 @@
-.mw8.center.ph3-ns
-  .cf
-    .fl.w-100
-      h1.f2.mv2.pv2.ba.b--dashed = @event.name
-      h3.f5.mv2.pv2.ba.b--dashed
-        = @event.starts_at
-        | –
-        = @event.ends_at
-  section.cf.ph2-ns
-    .fl.w-100.w-two-thirds-ns.pa1.ph4-ns
-      p.ba.b--dashed.pa4 Lorem ipsum dolor sit amet
-    .fl.w-100.w-third-ns.pa1.ph4-ns
-      p.ba.b--dashed.pa4 Lorem ipsum? Dolor sit amet consectetur adipisicing elit
-  .cf
-    .fl.w-100.ba.b--dashed
-      => link_to 'Edit', edit_event_path(@event)
-      '|
-      =< link_to 'Back', events_path
+.mw8.center.ph3-ns.pv3
+  .cf.mb3
+    .fl.w-50
+      span.tl.db =< link_to 'Back', events_path, class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
+    .fr.w-50
+      span.tr.db =<> link_to 'Edit', edit_event_path(@event), class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
+  section.cf
+    .fl.w-100.w-third-ns.pr2-ns
+      .ba
+        - if @event.cover_image.attached?
+          = image_tag url_for(@event.cover_image), class: 'mw-100 center db'
+        - else
+          = image_tag 'img_placeholder.svg', class: 'mw-100'
+          small.db.mt0.black-50.tc Cover image missing
+        h1.f3.pv1.ph3.mv0 = @event.name
+    .fl.w-100.w-two-thirds-ns.pl2-ns
+      .ba.pa2.mb2 Lorem ipsum dolor sit amet
+      article.ba.mv2
+        h3.f5.white.bg-near-black.ph3.pv2.mv0 Activities
+        ul.list.pl0.mv0
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+          li.pa3.bb.b--black-10
+            b.db.f4.mb1 Title
+            span.f6.lh-copy.measure.db
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
+              | poenam cardi parvo adamus stella nobis non concessit
+
+
+

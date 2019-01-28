@@ -8,8 +8,8 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
 
   body.sans-serif
-    = javascript_pack_tag 'application'
     main.mw-100.center
       = yield

@@ -7,19 +7,18 @@
         th.pv2.ph3.tl Name
         th.pv2.ph3.tl Starts at
         th.pv2.ph3.tl Ends at
-        th.pv2.ph3.tl colspan="3"
+        th.pv2.ph3.tl
 
     tbody
       - @events.each do |event|
         tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
-          td.pv2.ph3 = event.name
+          td.pv2.ph3 = link_to event.name, event, class: 'link black hover-bg-light-pink ph2'
           td.pv2.ph3 = event.starts_at
           td.pv2.ph3 = event.ends_at
           td.pv2.ph3
-            =<> link_to 'Show', event, class: 'link hover-hot-pink'
-            =<> link_to 'Edit', edit_event_path(event), class: 'link hover-hot-pink'
-            =<> link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete, class: 'link hover-dark-red'
+            =<> link_to 'Edit', edit_event_path(event), class: 'link black hover-bg-light-pink ph2'
+            =<> link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete, class: 'link black hover-bg-light-red ph2'
 
   br
 
-  = link_to 'New Event', new_event_path
+  = link_to 'New Event', new_event_path, class: 'f6 black no-underline ph2 pv1 ba b--near-black hover-bg-green hover-white hover-b--current'
