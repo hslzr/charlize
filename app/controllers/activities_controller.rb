@@ -1,9 +1,10 @@
 class ActivitiesController < ApplicationController
+  before_action :set_event
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   # GET /activities
   def index
-    @activities = Activity.all
+    @activities = @event.activities.all
   end
 
   # GET /activities/1
@@ -48,7 +49,11 @@ class ActivitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
-      @activity = Activity.find(params[:id])
+      @activity = @event.activities.find(params[:id])
+    end
+
+    def set_event
+      @event = Event.find(params[:event_id])
     end
 
     # Only allow a trusted parameter "white list" through.
