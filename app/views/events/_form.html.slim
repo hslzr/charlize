@@ -5,7 +5,13 @@
   .cf.mb3
     .fl.w-100.w-third-ns.pr3-ns
       .ba.b--near-black.mb1
-        = image_tag 'img_placeholder', class: 'mw-100 db center', id: 'image_container'
+        - if @event
+          - if @event.cover_image.attached?
+            = image_tag url_for(@event.cover_image), class: 'mw-100 db center', id: 'image_container'
+          - else
+            = image_tag 'img_placeholder', class: 'mw-100 db center', id: 'image_container'
+        - else
+          = image_tag 'img_placeholder', class: 'mw-100 db center', id: 'image_container'
       = label_tag 'image_input', 'Upload an image',
         class: 'db mv0 pv2 bg-black white tc mw-100 pointer'
       = f.input :cover_image, as: :file,

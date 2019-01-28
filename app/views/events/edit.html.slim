@@ -1,8 +1,11 @@
-h1 Editing event
+.mw8.center.ph3-ns.pv3
+  .cf.mb3
+    .fl.w-100
+      span.tl.db
+        = link_to 'Back', events_path, class: 'f6 no-underline ph2 pv1 black hover-white hover-bg-near-black ba b--near-black'
+  .cf.mb3
+    h1.f1.mv0
+      span.black-50 edit:
+      = @event.name
 
-== render 'form'
-
-=> link_to 'Show', @event
-'|
-=< link_to 'Back', events_path
-
+  == render 'form'
