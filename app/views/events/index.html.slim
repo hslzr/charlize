@@ -1,24 +1,32 @@
-.mw8.center
-  h1.f1 Listing events
+.mw8.center.mv3
+  .cf.mb3
+    .fl.w-100.w-50-ns
+      h1.f1.mv0 Listing events
 
-  table.w-100.collapse
-    thead
-      tr.bb.b
-        th.pv2.ph3.tl Name
-        th.pv2.ph3.tl Starts at
-        th.pv2.ph3.tl Ends at
-        th.pv2.ph3.tl
+  .cf.mb3
+    .fl.w-100.tr
+      = link_to 'New Event', new_event_path, class: 'f4 dib black no-underline ph2 pv1 ba b--near-black hover-bg-green hover-white hover-b--current'
 
-    tbody
-      - @events.each do |event|
-        tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
-          td.pv2.ph3 = link_to event.name, event, class: 'link black hover-bg-light-pink ph2'
-          td.pv2.ph3 = event.starts_at
-          td.pv2.ph3 = event.ends_at
-          td.pv2.ph3
-            =<> link_to 'Edit', edit_event_path(event), class: 'link black hover-bg-light-pink ph2'
-            =<> link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete, class: 'link black hover-bg-light-red ph2'
+  .cf.mb3
+    .fl.w-100
+      table.w-100.collapse.ba.b--near-black
+        thead
+          tr.bb.b.bg-near-black.white
+            th.pv2.ph3.tl Name
+            th.pv2.ph3.tl Starts at
+            th.pv2.ph3.tl Ends at
+            th.pv2.ph3.tl
 
-  br
+        tbody.bb.b--near-black
+          - @events.each do |event|
+            tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
+              td.pa3 = link_to event.name, event, class: 'link black hover-bg-light-pink ph2'
+              td.pa3 = event.starts_at
+              td.pa3 = event.ends_at
+              td.pa3
+                =<> link_to 'Edit', edit_event_path(event), class: 'link black hover-bg-light-pink ph2'
 
-  = link_to 'New Event', new_event_path, class: 'f6 black no-underline ph2 pv1 ba b--near-black hover-bg-green hover-white hover-b--current'
+css:
+  table tbody tr:last-child {
+    border-bottom-color: #111;
+  }
