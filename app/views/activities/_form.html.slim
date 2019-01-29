@@ -1,9 +1,39 @@
 = simple_form_for([@event, @activity]) do |f|
+  .cf.mb3
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .cf.mb3
+    .fl.w-100.w-third-ns
+      = label_tag 'activity_name', 'Name',
+        class: 'f6 db fw4 dark-gray'
+      = f.input :name,
+        label: false,
+        input_html: { class: 'db w-100 input-reset pa2 ba b--near-black', id: 'event_name' },
+        wrapper_html: { class: 'pr2' }
+    .fl.w-100.w-third-ns
+      = label_tag 'activity_starts_at', 'Start date',
+        class: 'f6 db fw4 dark-gray ph2'
+      = f.input :starts_at,
+        label: false, as: :string,
+        input_html: { class: 'db w-100 input-reset pa2 ba b--near-black', id: 'event_starts_at' },
+        wrapper_html: { class: 'ph2' }
+    .fl.w-100.w-third-ns
+      = label_tag 'activity_ends_at', 'End date',
+        class: 'f6 db fw4 dark-gray pl2'
+      = f.input :ends_at,
+        label: false, as: :string,
+        input_html: { class: 'db w-100 input-reset pa2 ba b--near-black', id: 'event_ends_at' },
+        wrapper_html: { class: 'pl2' }
+  .cf.mb3
+    .fl.w-100
+      = f.rich_text_area :description, class: 'ba br0 b--near-black'
+  .cf.mb3
+    .mv4
+      = f.button :submit, class: 'f5 ba b--near-black pa2 white bg-near-black hover-bg-white hover-near-black'
 
-  .form-inputs
-    = f.rich_text_area :description
 
-  .form-actions
-    = f.button :submit
+javascript:
+  flatpickr('[id$=_at]', {
+    enableTime: false,
+    minDate: 'today'
+  });

@@ -1,5 +1,10 @@
-h1 New activity
-
-== render 'form'
-
-= link_to 'Back', event_activities_path
+.mw8.center.ph3-ns.pv3#new_activity
+  .cf.mb3
+    .fl.w-100
+      span.tl.db
+        = link_to 'Back', event_path(@event),
+          class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
+  .cf.mb3
+    h3.f4.mb0 = @event.name
+    h1.f1.mv0 New Activity
+  == render 'form'
