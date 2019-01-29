@@ -12,6 +12,7 @@
  *
  *= require tachyons.min
  *= require flatpickr/dist/flatpickr.min
+ *= require trix
  *= require_tree .
  *= require_self
  */
