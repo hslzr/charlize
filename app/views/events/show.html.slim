@@ -20,41 +20,13 @@
       article.ba.mv2
         h3.f5.white.bg-near-black.ph3.pv2.mv0 Activities
         ul.list.pl0.mv0
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
-          li.pa3.bb.b--black-10
-            b.db.f4.mb1 Title
-            span.f6.lh-copy.measure.db
-              | Lorem ipsum dolor sit amet consectetur adipisicing elit cur
-              | poenam cardi parvo adamus stella nobis non concessit
+          - @event.activities.sort_by(&:starts_at).each do |act|
+            li.pa3.bb.b--black-10
+              b.db.f4.mb1 = act.name
+              span.f6.lh-copy.measure.db
+                span.db
+                  | Fecha:
+                  =<> act.starts_at&.strftime('%d/%m/%Y')
 
 
 

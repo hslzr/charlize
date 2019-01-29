@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new
+    @activity = @event.activities.new
   end
 
   # GET /activities/1/edit
@@ -22,10 +22,11 @@ class ActivitiesController < ApplicationController
 
   # POST /activities
   def create
-    @activity = Activity.new(activity_params)
+    @activity = @event.activities.new(activity_params)
 
     if @activity.save
-      redirect_to @activity, notice: 'Activity was successfully created.'
+      redirect_to event_path(@event),
+                  notice: 'Activity was successfully created.'
     else
       render :new
     end

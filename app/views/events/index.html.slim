@@ -5,24 +5,32 @@
 
   .cf.mb3
     .fl.w-100.tr
-      = link_to 'New Event', new_event_path, class: 'f4 dib black no-underline ph2 pv1 ba b--near-black hover-bg-green hover-white hover-b--current'
+      = link_to 'New Event', new_event_path, class: 'f4 dib black no-underline ph2 pv1 ba b--near-black hover-bg-light-green'
 
   .cf.mb3
     .fl.w-100
       table.w-100.collapse.ba.b--near-black
         thead
           tr.bb.b.bg-near-black.white
+            th style="min-width: 15px;"
             th.pv2.ph3.tl Name
+            th.pv2.ph3.tl Activities
             th.pv2.ph3.tl Starts at
             th.pv2.ph3.tl Ends at
             th.pv2.ph3.tl
 
         tbody.bb.b--near-black
-          - @events.each do |event|
+          - @events.sort_by(&:starts_at).each do |event|
             tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
-              td.pa3 = link_to event.name, event, class: 'link black hover-bg-light-pink ph2'
-              td.pa3 = event.starts_at
-              td.pa3 = event.ends_at
+              td.pl3.pr0.tc
+                - if event.starts_at&.today?
+                  small.dtc.v-mid.red.ttu.fr.f7 hoy
+                - if event.starts_at&.day == DateTime.tomorrow.day
+                  small.dtc.v.mid.gold.ttu.fr.f7 mañana
+              td.pa3 = link_to event.name, event, class: 'link black hover-bg-lightest-blue ph2'
+              td.pa3.tl = pluralize(event.activities.count, "activity")
+              td.pa3 = event.starts_at&.strftime('%d %m/%y, %H:%M')
+              td.pa3 = event.ends_at&.strftime('%d %m/%y, %H:%M')
               td.pa3
                 =<> link_to 'Edit', edit_event_path(event), class: 'link black hover-bg-light-pink ph2'
 

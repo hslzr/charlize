@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy]
 
   # GET /events
   def index
@@ -8,6 +8,9 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    @event = Event.includes(:activities)
+                  .with_attached_cover_image
+                  .find(params[:id])
   end
 
   # GET /events/new
