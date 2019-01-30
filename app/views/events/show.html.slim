@@ -17,9 +17,10 @@
         class: 'db fw5  f5 tc ttu no-underline white bg-near-black ph3 pv2 ba bw2 b--near-black hover-bg-white hover-near-black'
 
     .fl.w-100.w-two-thirds-ns.pl2-ns
-      .ba.pa2.mb2#active_event.b--green
-        = render partial: 'activity_now', locals: { act: @event.activities.first }
-      article.ba.mv2
+      - if @event.activities.any?
+        .ba.pa2.mb2#active_event.b--green
+          = render partial: 'activity_now', locals: { act: @event.activities.sort_by(&:starts_at).first }
+      article.ba.mb2
         h3.f5.white.bg-near-black.ph3.pv2.mv0 Activities
         ul.list.pl0.mv0
           - @event.activities.sort_by(&:starts_at).each do |act|
