@@ -28,6 +28,6 @@ WORKDIR /usr/src/app
 COPY Gemfile .
 COPY Gemfile.lock .
 # Install gems
-RUN bundle install -j4
+RUN bundle install -j10
 
 COPY . .
