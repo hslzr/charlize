@@ -28,7 +28,7 @@
                 - if event.starts_at&.day == DateTime.tomorrow.day
                   small.dtc.v.mid.gold.ttu.fr.f7 mañana
               td.pa3 = link_to event.name, event, class: 'link black hover-bg-lightest-blue ph2'
-              td.pa3.tl = pluralize(event.activities.count, "activity")
+              td.pa3.tl = pluralize(event.activities.size, "activity")
               td.pa3 = event.starts_at&.strftime('%d %m/%y, %H:%M')
               td.pa3 = event.ends_at&.strftime('%d %m/%y, %H:%M')
               td.pa3
