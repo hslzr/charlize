@@ -12,14 +12,14 @@
         - else
           = image_tag 'img_placeholder.svg', class: 'mw-100'
           small.db.mt0.black-50.tc Cover image missing
-        h1.f3.pv1.ph3.mv0 = @event.name
+        h1.f3.pv2.ph3.mv0 = @event.name
       = link_to 'Add activity', new_event_activity_path(@event),
         class: 'db fw5  f5 tc ttu no-underline white bg-near-black ph3 pv2 ba bw2 b--near-black hover-bg-white hover-near-black'
 
     .fl.w-100.w-two-thirds-ns.pl2-ns
-      - if @event.activities.any?
+      - @event.activities.active_now.each do |act|
         .ba.pa2.mb2#active_event.b--green
-          = render partial: 'activity_now', locals: { act: @event.activities.sort_by(&:starts_at).first }
+          = render partial: 'activity_now', locals: { act: act }
       article.ba.mb2
         h3.f5.white.bg-near-black.ph3.pv2.mv0 Activities
         - if @event.activities.any?
@@ -30,6 +30,6 @@
                 span.f6.lh-copy.measure.db
                   span.db
                     | Fecha:
-                    =<> act.starts_at&.strftime('%d/%m/%Y')
+                    =<> act.starts_at&.strftime('%d/%m/%Y %H:%M')
         - else
           = render partial: 'no_activities'

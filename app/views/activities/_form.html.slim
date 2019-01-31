@@ -36,6 +36,7 @@
 
 javascript:
   flatpickr('[id$=_at]', {
-    enableTime: false,
-    minDate: 'today'
+    enableTime: true,
+    minDate: "#{@event.starts_at.strftime('%Y-%m-%d')}",
+    maxDate: "#{@event.ends_at.strftime('%Y-%m-%d')}"
   });
