@@ -1,7 +1,9 @@
 = simple_form_for([@event, @activity]) do |f|
-  .cf.mb3
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  - if f.object.errors.any?
+    .cf.mb4
+      .ph4.pv3.bg-red.white
+        = f.error_notification
+        = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   .cf.mb3
     .fl.w-100.w-third-ns
       = label_tag 'activity_name', 'Name',

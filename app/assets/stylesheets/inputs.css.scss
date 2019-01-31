@@ -1,0 +1,14 @@
+.input.string {
+  & input {
+    border-color: #111;
+  }
+  &.field_with_errors {
+    input {
+      border-color: #E7040F;
+    }
+    span.error {
+      font-size: .75rem;
+      color: #E7040F;
+    }
+  }
+}
