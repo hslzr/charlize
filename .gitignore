@@ -30,6 +30,7 @@
 
 # Ignore .env files
 .env.*
+!.env.development.sample
 
 /public/packs
 /public/packs-test
