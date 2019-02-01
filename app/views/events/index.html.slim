@@ -4,10 +4,6 @@
       h1.f1.mv0 Listing events
 
   .cf.mb3
-    .fl.w-100.tr
-      = link_to 'New Event', new_event_path, class: 'f4 dib black no-underline ph2 pv1 ba b--near-black hover-bg-light-green'
-
-  .cf.mb3
     .fl.w-100
       table.w-100.collapse.ba.b--near-black
         thead
@@ -18,13 +14,15 @@
             th.pv2.ph3.tl Starts at
             th.pv2.ph3.tl Ends at
             th.pv2.ph3.tl
+              = link_to 'New Event', new_event_path,
+                class: 'f6 dib white hover-bg-white no-underline ph2 pv1 ba b--white hover-near-black'
 
         tbody.bb.b--near-black
           - @events.sort_by(&:starts_at).each do |event|
             tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
               td.pl3.pr0.tc
-                - if event.starts_at&.today?
-                  small.dtc.v-mid.red.ttu.fr.f7 hoy
+                - if event.active?
+                  small.dtc.v-mid.red.ttu.ff7 hoy
                 - if event.starts_at&.day == DateTime.tomorrow.day
                   small.dtc.v.mid.gold.ttu.fr.f7 mañana
               td.pa3 = link_to event.name, event, class: 'link black hover-bg-lightest-blue ph2'
