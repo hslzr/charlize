@@ -1,0 +1,19 @@
+.mw8.mw6-ns.center.ph3-ns.pv5-ns
+  .cf.mb3
+    .fl.w-100
+      h1.f1.mv0 Charlize
+
+  .cf.mb3
+    .fl.w-100
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .mb3
+          = label_tag 'user_email', 'Email', class: 'f6 db fw4 dark-gray'
+          = f.input :email, required: false,
+            autofocus: true, label: false,
+            input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent' }
+        .mb3
+          = label_tag 'user_password', 'Password', class: 'f6 db fw4 dark-gray'
+          = f.input :password, required: false, label: false,
+            input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent' }
+        .mv4
+          = f.button :submit, 'Login', class: 'f5 w-two-thirds ba b--near-black pa2 bg-transparent hover-bg-near-black hover-white'
