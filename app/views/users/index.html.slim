@@ -1,0 +1,33 @@
+.mw8.center.mv3.ph3-ns
+  .cf.mb3
+    .fl.w-100
+      h1.f1.mv0 Users
+
+  .cf.mb3
+    .fl.w-100
+      table.w-100.collapse.ba.b--near-black
+        thead
+          tr.white.bg-near-black
+            th.pv2.ph3.tl Name
+            th.pv2.ph3.tl Email
+            th.pv2.ph3.tl Phone
+            th.pv2.ph3.tr
+              = link_to 'New User', new_user_path,
+                class: 'f6 dib white hover-bg-white no-underline ph2 pv1 ba b--white hover-near-black'
+        tbody
+          - @users.each do |user|
+            tr.bb.b--light-gray.hover-bg-light-gray
+              td.pa3 #{user.name} #{user.last_name}
+              td.pa3 = user.email
+              td.pa3 = user.phone
+              td.pa3.tr
+                =<> link_to 'Edit', edit_user_path(user),
+                  class: 'near-black hover-bg-lightest-blue ph2 no-underline'
+                =<> link_to 'Delete', user,
+                  method: :delete, data: { confirm: 'Are you sure?' },
+                  class: 'red hover-white hover-bg-red ph2 no-underline'
+
+css:
+  table tbody tr:last-child {
+    border-bottom-color: #111;
+  }

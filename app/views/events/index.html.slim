@@ -13,7 +13,7 @@
             th.pv2.ph3.tl Activities
             th.pv2.ph3.tl Starts at
             th.pv2.ph3.tl Ends at
-            th.pv2.ph3.tl
+            th.pv2.ph3.tr
               = link_to 'New Event', new_event_path,
                 class: 'f6 dib white hover-bg-white no-underline ph2 pv1 ba b--white hover-near-black'
 
@@ -22,15 +22,17 @@
             tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
               td.pl3.pr0.tc
                 - if event.active?
-                  small.dtc.v-mid.red.ttu.ff7 hoy
+                  small.dtc.v-mid.red.ttu.ff7.b today
                 - if event.starts_at&.day == DateTime.tomorrow.day
                   small.dtc.v.mid.gold.ttu.fr.f7 mañana
-              td.pa3 = link_to event.name, event, class: 'link black hover-bg-lightest-blue ph2'
+              td.pa3 = link_to event.name, event, class: 'black hover-bg-lightest-blue ph2'
               td.pa3.tl = pluralize(event.activities.size, "activity")
               td.pa3 = event.starts_at&.strftime('%d %m/%y, %H:%M')
               td.pa3 = event.ends_at&.strftime('%d %m/%y, %H:%M')
-              td.pa3
-                =<> link_to 'Edit', edit_event_path(event), class: 'link black hover-bg-light-pink ph2'
+              td.pa3.tr.v-mid
+                =<> link_to 'Edit', edit_event_path(event), class: 'black hover-bg-green hover-white pa2 no-underline'
+                =<> link_to 'Delete', event_path(event), data: { confirm: 'Are you sure?' }, method: :delete,
+                  class: 'red hover-white hover-bg-red pa2 no-underline'
 
 css:
   table tbody tr:last-child {
