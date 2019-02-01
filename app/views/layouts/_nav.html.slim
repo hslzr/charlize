@@ -3,7 +3,7 @@ nav.bb.b--white-10.bg-near-black
     = link_to 'Charlize', root_path,
       class: 'no-underline white-70 hover-white pv2'
     .flex.flex-grow.items-center
-      span.dib.mh3-ns.white-70.hover-white.pointer events
-      span.dib.mh3-ns.white-70.hover-white.pointer activities
+      = link_to 'events', events_path,
+        class: 'mh3-ns no-underline white-70 hover-white'
       span.dib.mh3-ns.white-70.hover-white.pointer users
-      span.dib.white-70.hover-white.pointer config
+      span.dib.white-70.ml3-ns.hover-white.pointer config
