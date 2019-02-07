@@ -1,4 +1,4 @@
-FROM ruby:2.6-slim
+FROM ruby:2.6.1-slim
 LABEL maintainer "Salazar <salazar@hslzr.com>"
 
 # Set Timezone
