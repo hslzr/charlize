@@ -1,6 +1,88 @@
-p#notice = notice
-
-
-=> link_to 'Edit', edit_event_activity_path(@event, @activity)
-'|
-=< link_to 'Back', event_path(@event)
+.mw8.center.ph3-ns.pv3
+  .cf.mb3
+    .fl.w-50
+      span.tl.db =< link_to 'Back', event_path(@activity.event), class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
+    .fr.w-50
+      span.tr.db =<> link_to 'Edit', edit_event_activity_path(@activity.event, @activity), class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
+  section.cf.mb3
+    .fl.w-100.w-75-ns.pr2-ns
+      .ba.mb3
+        h3.mv0.f5.white.bg-near-black.pa2 = @activity.event.name
+        article.pa2
+          h1.mv0.f1 = @activity.name
+          p == @activity.description
+    .fl.w-100.w-25-ns
+      .ba.mb3
+        h3.mv0.f5.white.bg-near-black.pa2 Responsable
+        article.pa2
+          h3.mv0.f4 Damian Vorg
+          p: em To be defined
+      .ba.mb3.h7
+        h4.mv0.f5.white.bg-near-black.pa2 Assistants
+        section.overflow-container.overflow-y.h5
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto
+          article.dt.w-100.bb.b--black-10.pb2.mt2
+            .dtc.v-mid.w2.w3-ns
+              = image_tag 'http://mrmrs.github.io/photos/p/2.jpg',
+                class: 'ba db w2 h2 center'
+            .dtc.v-mid
+              h1.f6.fw6.mv0.lh-title Alberto

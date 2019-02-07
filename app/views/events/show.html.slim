@@ -26,10 +26,12 @@
           ul.list.pl0.mv0
             - @event.activities.sort_by(&:starts_at).each do |act|
               li.pa3.bb.b--black-10
-                b.db.f4.mb1 = act.name
+                b.db.f4.mb1
+                  = link_to act.name, event_activity_path(@event, act),
+                    class: 'black underline'
                 span.f6.lh-copy.measure.db
                   span.db
                     | Fecha:
-                    =<> act.starts_at&.strftime('%d/%m/%Y %H:%M')
+                    =<> act.starts_at&.strftime('%d/%b/%Y %H:%M')
         - else
           = render partial: 'no_activities'

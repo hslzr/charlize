@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
   # PATCH/PUT /activities/1
   def update
     if @activity.update(activity_params)
-      redirect_to @activity, notice: 'Activity was successfully updated.'
+      redirect_to event_activity_path(@activity.event, @activity), notice: 'Activity was successfully updated.'
     else
       render :edit
     end
