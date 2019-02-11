@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy, :calendar]
 
   # GET /events
   def index
@@ -12,6 +12,10 @@ class EventsController < ApplicationController
     @event = Event.includes(:activities)
                   .with_attached_cover_image
                   .find(params[:id])
+  end
+
+  # GET /events/1/calendar
+  def calendar
   end
 
   # GET /events/new

@@ -1,0 +1,22 @@
+.simple-calendar
+  .calendar-heading.tr.mb2
+    =<> link_to '«', calendar.url_for_previous_view,
+      class: 'f6 ph2 pv1 near-black no-underline ba b--near-black hover-bg-near-black hover-white'
+    span.calendar-title.ba.ph2.pv1.f6.b--near-black
+      = t('date.month_names')[start_date.month]
+      =< start_date.year
+    =<> link_to '»', calendar.url_for_next_view,
+      class: 'f6 ph2 pv1 near-black no-underline ba b--near-black hover-bg-near-black hover-white'
+
+  table.w-100.collapse.bn.ba-ns.b--near-black
+    thead
+      tr.bg-near-black.white.b
+        - date_range.slice(0,7).each do |day|
+          th.pv1.ph3.tl = t('date.abbr_day_names')[day.wday]
+    tbody
+      - date_range.each_slice(7) do |week|
+        tr.pa3.pv4
+          - week.each do |day|
+            = content_tag :td, class: calendar.td_classes_for(day) + ['ba', 'b--gray', 'h4', 'relative', 'mw3']
+              - block.call day, sorted_events.fetch(day, [])
+

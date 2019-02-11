@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :events do
+    get :calendar, on: :member
+    
     resources :activities, except: [:index]
   end
 

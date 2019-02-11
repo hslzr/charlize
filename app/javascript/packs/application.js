@@ -5,8 +5,8 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
-require("vue")
 require("flatpickr")
 require("channels")
 require("trix")
 require("@rails/actiontext")
+require("stimulus")
