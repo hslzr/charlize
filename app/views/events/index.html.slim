@@ -1,21 +1,23 @@
-.mw8.center.mv3.ph3-ns
+.mw8.center.mv3.ph3
   .cf.mb3
     .fl.w-100.w-50-ns
       h1.f1.mv0 Listing events
 
   .cf.mb3
-    .fl.w-100
-      table.w-100.collapse.ba.b--near-black
+    .fl.w-100.overflow-scroll.overflow-scroll-x.ba.bn-ns
+      table.w-100.collapse.bn.ba-ns.b--near-black
         thead
-          tr.bb.b.bg-near-black.white
+          tr.b.bg-near-black.white
             th style="min-width: 15px;"
-            th.pv2.ph3.tl Name
-            th.pv2.ph3.tl Activities
-            th.pv2.ph3.tl Starts at
-            th.pv2.ph3.tl Ends at
-            th.pv2.ph3.tr
-              = link_to 'New Event', new_event_path,
-                class: 'f6 dib white hover-bg-white no-underline ph2 pv1 ba b--white hover-near-black'
+            th.pv1.ph3.tl Name
+            th.pv1.ph3.tl Activities
+            th.pv1.ph3.tl Starts at
+            th.pv1.ph3.tl Ends at
+            th.pv1.ph3.tr
+              = link_to new_event_path,
+                class: 'f6 dib white hover-bg-white no-underline ph2 pv1 ba b--white hover-near-black',
+                title: 'Nuevo evento'
+                = feather('plus')
 
         tbody.bb.b--near-black
           - @events.sort_by(&:starts_at).each do |event|
@@ -30,9 +32,8 @@
               td.pa3 = event.starts_at&.strftime('%d/%b/%y, %H:%M')
               td.pa3 = event.ends_at&.strftime('%d/%b/%y, %H:%M')
               td.pa3.tr.v-mid
-                =<> link_to 'Edit', edit_event_path(event), class: 'black hover-bg-green hover-white pa2 no-underline'
-                =<> link_to 'Delete', event_path(event), data: { confirm: 'Are you sure?' }, method: :delete,
-                  class: 'red hover-white hover-bg-red pa2 no-underline'
+                = link_to edit_event_path(event), class: 'black hover-bg-green hover-white ph2 pv1 no-underline'
+                  = feather('edit-3')
 
 css:
   table tbody tr:last-child {
