@@ -17,6 +17,6 @@
       - date_range.each_slice(7) do |week|
         tr.pa3.pv4
           - week.each do |day|
-            = content_tag :td, class: calendar.td_classes_for(day) + ['ba', 'b--gray', 'h4', 'relative', 'mw3']
+            = content_tag :td, class: 'ba b--gray h4 relative mw3'
               - block.call day, sorted_events.fetch(day, [])
 

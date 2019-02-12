@@ -1,13 +1,15 @@
-.mw8.center.ph3.pv3
+.mw8.center.ph2.ph3-ns.pv3
   .cf.mb3
     .fl.w-50
       span.tl.db =< link_to 'Back', event_path(@event), class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
 
   .cf.mb3
-    = month_calendar(attribute: :starts_at,
-      end_attribute: :ends_at,
-      events: @event.activities) do |date, activities|
-      span.absolute.top-0.left-0.br.bb.b--gray.ph2.pv1.f6 = date.day
-      - activities.each do |act|
-        .truncate
-          span title="#{act.name}" = act.name
+    .fl.w-100
+      = month_calendar(attribute: :starts_at,
+        end_attribute: :ends_at,
+        events: @event.activities) do |date, activities|
+        span class="#{SimpleCalendar::Calendar.new(self).td_classes_for(date).join(' ')} absolute top-0 left-0 br bb b--gray ph2 pv1 f7"
+          = date.day
+        - activities.each do |act|
+          .truncate
+            span.f6 title="#{act.name}" = act.name
