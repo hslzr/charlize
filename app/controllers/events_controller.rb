@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.includes(:activities)
                   .with_attached_cover_image
-                  .find(params[:id])
+                  .find_by(slug: params[:slug])
   end
 
   # GET /events/1/calendar
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find_by(slug: params[:slug])
     end
 
     # Only allow a trusted parameter "white list" through.

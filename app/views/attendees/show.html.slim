@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @attendee.name
+p
+  strong Last name:
+  = @attendee.last_name
+p
+  strong Sur name:
+  = @attendee.sur_name
+p
+  strong Phone:
+  = @attendee.phone
+p
+  strong Email:
+  = @attendee.email
+p
+  strong Event:
+  = @attendee.event
+
+=> link_to 'Edit', edit_attendee_path(@attendee)
+'|
+=< link_to 'Back', attendees_path

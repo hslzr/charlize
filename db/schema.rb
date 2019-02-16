@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 2019_02_16_000026) do
     t.index ["event_id"], name: "index_activities_on_event_id"
   end
 
+  create_table "attendees", force: :cascade do |t|
+    t.string "name"
+    t.string "last_name"
+    t.string "sur_name"
+    t.string "phone"
+    t.string "email"
+    t.boolean "subscribe_email"
+    t.boolean "subscribe_phone"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendees_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "starts_at"
@@ -87,4 +101,5 @@ ActiveRecord::Schema.define(version: 2019_02_16_000026) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "events"
+  add_foreign_key "attendees", "events"
 end

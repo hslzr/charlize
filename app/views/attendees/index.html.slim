@@ -1,0 +1,31 @@
+h1 Listing attendees
+
+table
+  thead
+    tr
+      th Name
+      th Last name
+      th Sur name
+      th Phone
+      th Email
+      th Event
+      th
+      th
+      th
+
+  tbody
+    - @attendees.each do |attendee|
+      tr
+        td = attendee.name
+        td = attendee.last_name
+        td = attendee.sur_name
+        td = attendee.phone
+        td = attendee.email
+        td = attendee.event
+        td = link_to 'Show', attendee
+        td = link_to 'Edit', edit_attendee_path(attendee)
+        td = link_to 'Destroy', attendee, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Attendee', new_attendee_path
