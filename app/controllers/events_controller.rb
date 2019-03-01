@@ -1,20 +1,22 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :set_event, only: [:edit, :update, :destroy, :calendar]
+
+  # TODO: Add a registration form for attendees.
 
   # GET /events
   def index
     @events = Event.includes(:activities).all
   end
 
-  # GET /events/1
+  # GET /events/:slug
   def show
     @event = Event.includes(:activities)
                   .with_attached_cover_image
                   .find_by(slug: params[:slug])
   end
 
-  # GET /events/1/calendar
+  # GET /events/:slug/calendar
   def calendar
   end
 
@@ -23,7 +25,7 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  # GET /events/1/edit
+  # GET /events/:slug/edit
   def edit
   end
 
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
+  # PATCH/PUT /events/:slug
   def update
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
@@ -47,7 +49,7 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
+  # DELETE /events/:slug
   def destroy
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
