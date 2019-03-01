@@ -8,7 +8,7 @@
       span.tr.db =<> link_to 'Edit', edit_event_path(@event), class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
 
   section.cf
-    .fl.w-100.w-third-ns.pr2-ns
+    .fl.w-100.w-25-ns.pr2-ns
       .ba.mb3
         - if @event.cover_image.attached?
           = image_tag url_for(@event.cover_image), class: 'mw-100 center db'
@@ -18,25 +18,19 @@
         h1.f3.pv2.ph3.mv0 = @event.name
       = link_to 'Add activity', new_event_activity_path(@event),
         class: 'db fw5  f5 tc ttu no-underline white bg-near-black ph3 pv2 ba b--near-black hover-bg-white hover-near-black mb1'
-      = link_to 'Calendar', calendar_event_path(@event),
-        class: 'db fw5 f5 tc ttu no-underline black ba ph3 pv2 b--near-black hover-bg-near-black hover-white'
+      /= link_to 'Calendar', calendar_event_path(@event),
+        /class: 'db fw5 f5 tc ttu no-underline black ba ph3 pv2 b--near-black hover-bg-near-black hover-white'
 
-    .fl.w-100.w-two-thirds-ns.pl2-ns
-      - @event.activities.active_now.each do |act|
-        .ba.pa2.mb2#active_event.b--green
-          = render partial: 'activity_now', locals: { act: act }
+    .fl.w-100.w-75-ns.pl2-ns
+      - if @event.activities.active_now.any?
+        .flex.flex-wrap
+          = render partial: 'activity_now',
+            collection: @event.activities.active_now, as: :activity
       article.ba.mb2
         h3.f5.white.bg-near-black.ph3.pv2.mv0 Activities
         - if @event.activities.any?
           ul.list.pl0.mv0
-            - @event.activities.sort_by(&:starts_at).each do |act|
-              li.pa3.bb.b--black-10
-                b.db.f4.mb1
-                  = link_to act.name, event_activity_path(@event, act),
-                    class: 'black underline'
-                span.f6.lh-copy.measure.db
-                  span.db
-                    | Fecha:
-                    =<> act.starts_at&.strftime('%d/%b/%Y %H:%M')
+            = render partial: 'activity_list_item',
+              collection: @event.activities.sort_by(&:starts_at), as: :activity
         - else
           = render partial: 'no_activities'

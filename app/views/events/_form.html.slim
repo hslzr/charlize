@@ -23,16 +23,17 @@
         = f.input :name,
           label: false,
           input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_name' }
-      .mb3
-        = label_tag 'event_starts_at', 'Starts at', class: 'f6 db fw4 dark-gray'
-        = f.input :starts_at, as: :string,
-          label: false,
-          input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_starts_at' }
-      .mb3
-        = label_tag 'event_ends_at', 'Ends at', class: 'f6 db fw4 dark-gray'
-        = f.input :ends_at, as: :string,
-          label: false,
-          input_html: { class: 'input-reset w-two-thirds pa2 ba b--near-black bg-transparent', id: 'event_ends_at' }
+      .cf.mb3.w-100.w-two-thirds-ns
+        .fl.w-100.w-50-ns.pr1-ns
+          = label_tag 'event_starts_at', 'Starts at', class: 'f6 db fw4 dark-gray'
+          = f.input :starts_at, as: :string,
+            label: false,
+            input_html: { class: 'input-reset w-100 pa2 ba b--near-black bg-transparent', id: 'event_starts_at' }
+        .fl.w-100.w-50-ns.pl1-ns
+          = label_tag 'event_ends_at', 'Ends at', class: 'f6 db fw4 dark-gray'
+          = f.input :ends_at, as: :string,
+            label: false,
+            input_html: { class: 'input-reset w-100 pa2 ba b--near-black bg-transparent', id: 'event_ends_at' }
       .mv4
         = f.button :submit, class: 'f5 w-two-thirds ba b--near-black pa2 bg-transparent hover-bg-near-black hover-white'
 
