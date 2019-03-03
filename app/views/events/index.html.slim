@@ -20,20 +20,8 @@
                 = feather('plus')
 
         tbody.bb.b--near-black
-          - @events.sort_by(&:starts_at).each do |event|
-            tr.bb.b--light-gray.bg-animate.hover-bg-light-gray
-              td.pl3.pr0.tc
-                - if event.active?
-                  small.dtc.v-mid.red.ttu.ff7.b today
-                - if event.starts_at&.day == DateTime.tomorrow.day
-                  small.dtc.v.mid.gold.ttu.fr.f7 mañana
-              td.pa3 = link_to event.name, event_path(event), class: 'black hover-bg-lightest-blue ph2'
-              td.pa3.tl = pluralize(event.activities.size, "activity")
-              td.pa3 = event.starts_at&.strftime('%d/%b/%y, %H:%M')
-              td.pa3 = event.ends_at&.strftime('%d/%b/%y, %H:%M')
-              td.pa3.tr.v-mid
-                = link_to edit_event_path(event.to_param), class: 'black hover-bg-green hover-white ph2 pv1 no-underline'
-                  = feather('edit-3')
+          = render partial: 'events/list_item',
+            collection: @events.sort_by(&:starts_at), as: :event
 
 css:
   table tbody tr:last-child {
