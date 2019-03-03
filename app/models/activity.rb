@@ -2,7 +2,7 @@ class Activity < ApplicationRecord
   # Relations
   belongs_to :event
 
-  # TODO: Assistant model
+  # TODO: Attendee model
   # It is like a User, but it attends (duh) an event AND may attend
   # activities inside it. They're registered and can be pre-registered
   # Side note, an activity MAY HAVE attendees but it is not required,
