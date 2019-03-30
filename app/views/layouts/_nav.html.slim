@@ -7,3 +7,5 @@ nav.bb.b--white-10.bg-near-black
         class: 'mh3-ns no-underline white-70 hover-white'
       = link_to 'users', users_path,
         class: 'mh3-ns no-underline white-70 hover-white'
+      = link_to 'log out', destroy_user_session_path,
+        method: :delete, class: 'mh3-ns no-underline white-70 hover-white'
