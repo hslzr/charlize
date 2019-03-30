@@ -10,7 +10,7 @@
         class: 'f6 db fw4 dark-gray'
       = f.input :name,
         label: false,
-        input_html: { class: 'db w-100 input-reset pa2 ba b--near-black', id: 'event_name' },
+        input_html: { class: 'db w-100 input-reset pa2 ba b--near-black', id: 'event_name', data: { action: 'keyup->activity-form#nameChange', target: 'activity-form.name' } },
         wrapper_html: { class: 'pr2' }
     .fl.w-100.w-third-ns
       = label_tag 'activity_starts_at', 'Start date',
@@ -28,7 +28,7 @@
         wrapper_html: { class: 'pl2' }
   .cf.mb3
     .fl.w-100
-      = f.rich_text_area :description, class: 'ba br0 b--near-black'
+      = f.rich_text_area :description, class: 'ba br0 b--near-black', style: 'min-height: 10rem;'
   .cf.mb3
     .mv4
       = f.button :submit, class: 'f5 ba b--near-black pa2 white bg-near-black hover-bg-white hover-near-black'

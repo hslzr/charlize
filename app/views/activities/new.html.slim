@@ -1,4 +1,4 @@
-.mw8.center.ph3-ns.pv3#new_activity
+.mw8.center.ph3-ns.pv3#new_activity data-controller='activity-form'
   .cf.mb3
     .fl.w-100
       span.tl.db
@@ -6,5 +6,5 @@
           class: 'f6 no-underline black ph2 pv1 ba b--near-black hover-bg-near-black hover-white'
   .cf.mb3
     h3.f4.mb0 = @event.name
-    h1.f1.mv0 New Activity
+    h1.f1.mv0 data-target="activity-form.nameTitle" New Activity
   == render 'form'
