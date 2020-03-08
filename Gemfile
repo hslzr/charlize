@@ -6,15 +6,15 @@ ruby '2.6.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
-gem 'rails', '~> 6.0.0.beta1'
-gem 'sass-rails', '~> 5.0'
+gem 'puma'
+gem 'rails', '~> 6'
+gem 'sassc-rails'
 gem 'sendgrid-ruby'
 gem 'simple_calendar', '~> 2.0'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'tachyons-rails'
-gem 'webpacker', '>= 4.0.0.rc.3'
+gem 'webpacker'
 
 group :development, :test do
   gem 'better_errors'
@@ -34,6 +34,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
