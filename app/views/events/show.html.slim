@@ -10,12 +10,12 @@
   section.cf
     .fl.w-100.w-25-ns.pr2-ns
       .ba.mb3
+        h1.f3.pv2.ph3.mv0 = @event.name
         - if @event.cover_image.attached?
           = image_tag url_for(@event.cover_image), class: 'mw-100 center db'
         - else
           = image_tag 'img_placeholder.svg', class: 'mw-100'
           small.db.mt0.black-50.tc Cover image missing
-        h1.f3.pv2.ph3.mv0 = @event.name
       = link_to 'Add activity', new_event_activity_path(@event),
         class: 'db fw5  f5 tc ttu no-underline white bg-near-black ph3 pv2 ba b--near-black hover-bg-white hover-near-black mb1'
       /= link_to 'Calendar', calendar_event_path(@event),

@@ -5,6 +5,7 @@ ruby '2.6.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
+gem 'draper'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 gem 'rails', '~> 6'
