@@ -20,6 +20,9 @@ class Event < ApplicationRecord
 
   # Validations
   validates :name, :starts_at, :ends_at, presence: true
+  validates :total_tickets,
+    presence: true,
+    numericality: { greater_than: 0 }
   validate :end_date_cannot_be_before_start_date
 
   # Callbacks

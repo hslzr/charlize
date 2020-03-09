@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event = Event.includes(:activities)
                   .with_attached_cover_image
                   .find_by(slug: params[:slug])
+    @event = EventDecorator.new(@event)
   end
 
   # GET /events/:slug/calendar
@@ -63,6 +64,7 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:name, :starts_at, :ends_at, :cover_image)
+      params.require(:event).permit(:name, :starts_at, :ends_at, :cover_image,
+                                    :total_tickets)
     end
 end

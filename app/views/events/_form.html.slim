@@ -34,13 +34,20 @@
           = f.input :ends_at, as: :string,
             label: false,
             input_html: { class: 'input-reset w-100 pa2 ba b--near-black bg-transparent', id: 'event_ends_at' }
+      .cf.mb3.w-100.w-two-thirds-ns
+        .fl.w-100.w-50-ns.pr1-ns
+          = label_tag 'event_total_tickets', 'Total available tickets'
+          = f.input :total_tickets,
+            label: false,
+            input_html: { class: 'input-reset w-100 pa2 ba b--near-black bg-transparent', id: 'event_total_tickets' }
       .mv4
         = f.button :submit, class: 'f5 w-two-thirds ba b--near-black pa2 bg-transparent hover-bg-near-black hover-white'
 
 javascript:
   flatpickr('[id$=_at]', {
     enableTime: true,
-    minDate: 'today'
+    minDate: 'today',
+    dateFormat: 'd F, H:i'
   });
 
   var el = document.getElementById('image_input');

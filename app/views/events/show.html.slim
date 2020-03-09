@@ -16,6 +16,13 @@
         - else
           = image_tag 'img_placeholder.svg', class: 'mw-100'
           small.db.mt0.black-50.tc Cover image missing
+      .cf
+        div.mb2
+          | Total tickets: 
+          b= @event.total_tickets
+        div.mb3
+          | Available tickets:
+          b= @event.available_tickets
       = link_to 'Add activity', new_event_activity_path(@event),
         class: 'db fw5  f5 tc ttu no-underline white bg-near-black ph3 pv2 ba b--near-black hover-bg-white hover-near-black mb1'
       /= link_to 'Calendar', calendar_event_path(@event),
