@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  starts_at  :datetime
+#  ends_at    :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#
 class Event < ApplicationRecord
   # Relations
   has_many :activities, dependent: :destroy
