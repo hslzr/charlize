@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_023117) do
     t.string "name"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_activities_on_event_id"
   end
 
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_023117) do
     t.boolean "subscribe_email"
     t.boolean "subscribe_phone"
     t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_attendees_on_event_id"
   end
 
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_023117) do
     t.string "name"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.integer "total_tickets", default: 1
     t.integer "sold_tickets", default: 0
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_023117) do
     t.string "name"
     t.string "last_name"
     t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

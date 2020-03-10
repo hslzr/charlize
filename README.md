@@ -1,24 +1,40 @@
-# README
+# Charlize
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup with Docker
 
-Things you may want to cover:
+Create a `.env.development` file with the next values:
 
-* Ruby version
+```
+POSTGRES_USER=db_user
+POSTGRES_PASSWORD=db_password
+```
 
-* System dependencies
+Then run the docker commands
 
-* Configuration
 
-* Database creation
+```sh
 
-* Database initialization
 
-* How to run the test suite
+# Build the Docker images
+docker-compose build
 
-* Services (job queues, cache servers, search engines, etc.)
+# Create
+docker-compose run --rm app rails db:create db:migrate
 
-* Deployment instructions
+docker-compose up
+```
 
-* ...
+## Setup without Docker
+
+You'll need to have a Postgres installation running on port 5432.
+
+Go to the `config/database.yml` file and edit the following lines with your current values:
+
+```
+	host: localhost
+	username: YOUR USERNAME GOES HERE
+	password: YOUR PASSWORD GOES HERE
+	
+	# If your installation has no password,
+	delete that line
+```
