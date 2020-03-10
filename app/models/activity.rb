@@ -14,13 +14,6 @@ class Activity < ApplicationRecord
   # Relations
   belongs_to :event
 
-  # TODO: Attendee model
-  # It is like a User, but it attends (duh) an event AND may attend
-  # activities inside it. They're registered and can be pre-registered
-  # Side note, an activity MAY HAVE attendees but it is not required,
-  # and the admin user should define which activities do need attendees
-  # registering for it.
-
   # Attachments
   has_rich_text :description
 

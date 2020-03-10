@@ -23,7 +23,7 @@ class Event < ApplicationRecord
   validates :total_tickets,
     presence: true,
     numericality: { greater_than: 0 }
-  validate :end_date_cannot_be_before_start_date
+  #validate :end_date_cannot_be_before_start_date
 
   # Callbacks
   before_create :generate_slug
