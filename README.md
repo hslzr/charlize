@@ -34,7 +34,16 @@ Go to the `config/database.yml` file and edit the following lines with your curr
 	host: localhost
 	username: YOUR USERNAME GOES HERE
 	password: YOUR PASSWORD GOES HERE
-	
-	# If your installation has no password,
-	delete that line
+```
+
+Then run the following commands on the project's directory
+
+```sh
+
+$ bundle install -j4
+
+$ bundle exec rails db:create db:migrate
+
+$ bundle exec rails s
+
 ```
