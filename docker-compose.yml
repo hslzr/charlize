@@ -10,27 +10,20 @@ services:
       - .:/usr/src/app
     tty: true
     stdin_open: true
-    env_file:
-      - .env.development
-    depends_on:
-      - postgres
     links:
-      - postgres
       - webpack
 
   webpack:
     build: .
     command: ./bin/webpack-dev-server
-    env_file:
-      - .env.development
     ports:
       - 3035:3035
     volumes:
       - .:/usr/src/app
 
-  postgres:
-    image: postgres:11.1-alpine
-    volumes:
-      - ./pg-data:/var/lib/postgresql/data
-    env_file:
-      - .env.development
+  #postgres:
+    #image: postgres:11.1-alpine
+    #volumes:
+      #- ./pg-data:/var/lib/postgresql/data
+    #env_file:
+      #- .env.development
